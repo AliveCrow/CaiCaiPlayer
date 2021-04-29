@@ -1,0 +1,121 @@
+
+.cai-video-controls {
+  position: absolute;
+  width: calc(100% - 80px);
+  margin-left: 40px;
+  color: #fff;
+  font-size: .5rem;
+  bottom: 30px;
+}
+
+.cai-video-controls-bg {
+  position: absolute;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(23, 22, 22, 0.4);
+  backdrop-filter: blur(20px);
+  z-index: 0;
+  border-radius: 6px;
+}
+
+.cai-video-btn {
+  height: 20px;
+  margin-right: 5px;
+  outline: none;
+  border: none;
+}
+
+.progress {
+  flex: 1;
+  outline: none;
+  border: none;
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.968), rgb(255, 255, 255)) no-repeat, rgb(155, 153, 153);
+  background-size: 0 100%;
+  cursor: pointer;
+  transform-origin: 50% center;
+  border-radius: 1px
+}
+
+input[type="range"] {
+  /* 去除默认样式 */
+  -webkit-appearance: none;
+}
+
+/* 控制条轨迹的背景和边框样式 */
+.progress::-webkit-slider-runnable-track{
+  height: 1px;
+  transition: all 0.15s ease-in-out;
+}
+
+/* 设置控制的拖拽按钮样式 */
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 3px solid #fff;
+  width: 10px;
+  margin-top: -3px;
+  cursor: pointer;
+  border-radius: 1px;
+}
+
+.progress:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  margin-top: -2px;
+} 
+    
+.timestamp{
+  margin-left: 5px;
+}
+
+.sound,.mute{
+  margin-left: 5px;
+}
+
+.set:hover{
+  background-color: rgba(23, 22, 22, .8);
+}
+.cai-video-btn{
+  transition:all .25s ease;
+  padding:2px;
+}
+.cai-video-btn:hover{
+  transform: scale(1.1);
+  border-radius: 6px;
+  background-color: #fff;
+  color: rgba(23, 22, 22, .8);
+}
+
+svg.cai-video-btn {
+  height: 23px;
+  width: 23px;
+}
+.sound{
+  width: 23px;
+  height: 23px;
+  position: relative;
+}
+#sound-icon {
+  height: 23px;
+  width: 23px;
+  padding:2px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.fullscreen-exit{
+  fill: #fff;
+  height: 20px;width: 20px;
+}
+.fullscreen-exit:hover{
+  fill:rgba(23, 22, 22, .8);
+}
+.set-panel-box{
+  white-space: nowrap;
+}

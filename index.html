@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="author" content="grit">
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/index.css">
+  <link rel="stylesheet" href="./style/player.css">
+  <link rel="stylesheet" href="./style/progress.css">
+  <link rel="stylesheet" href="./style//volume_panel.css">
+  <title>蔡蔡子</title>
+  </title>
+</head>
+<body>
+  <!-- src：视频的URL
+poster：视频封面，没有播放时显示的图片
+preload：预加载
+autoplay：自动播放
+loop：循环播放
+controls：浏览器自带的控制条
+width：视频宽度
+height：视频高度
+webkit-playsinline="true" IOS下防止全屏播放
+playsinline="true" 同上
+x-webkit-airplay="true" 支持ios的AirPlay功能
+x5-video-player-type="h5" 启用同层H5播放器
+x5-video-player-fullscreen="true" 全屏设置
+x5-video-orientation="portraint" 竖屏
+style="object-fit:fill" 封面铺满
+muted="true" 静音播放 -->
+  <div id="cai-video-container">
+    <video src="https://v-cdn.zjol.com.cn/280443.mp4" poster="./assets/image.webp" style="object-fit:cover" controls
+      id="video" class="screen auto" muted="true"></video>
+    <div class="cai-video-controls">
+      <div class="cai-video-controls-bg">
+        <svg xmlns="http://www.w3.org/2000/svg" id="play" class="cai-video-btn h-5 w-5" viewBox="0 0 20 20"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+            clip-rule="evenodd" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="pause" class="cai-video-btn h-5 w-5" viewBox="0 0 20 20"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
+            clip-rule="evenodd" />
+        </svg>
+        <!-- <img class="cai-video-btn play" src="./assets/play.png" alt=""  > -->
+        <!-- <img class="cai-video-btn pause" src="./assets/pause.png" alt=""  > -->
+        <input type="range" id="progress" class=" progress" min="0" max="100" step="0.01" value="0">
+        <span id="timestamp" class="timestamp">
+          00:00
+        </span>
+        <div class="cai-video-btn sound" id="sound">
+          <svg xmlns="http://www.w3.org/2000/svg" id="sound-icon" class="h-5 w-5" viewBox="0 0 20 20"
+            fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+              clip-rule="evenodd" />
+          </svg>
+          <div class="volume-panel-box">
+            <input type="range" id="volume-panel" class="volume-panel" min="0" max="100" step="1"></input>
+          </div>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" id="mute" class="cai-video-btn h-5 w-5 mute" viewBox="0 0 20 20"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z"
+            clip-rule="evenodd" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="fullscreen" class="cai-video-btn h-6 w-6 fullscreen" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="fullscreen-exit" class="cai-video-btn fullscreen-exit"
+          viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z" />
+        </svg>
+        <div class="cai-video-btn sound" id="sound">
+          <svg xmlns="http://www.w3.org/2000/svg" id="sound-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+          </svg>
+          <div class="volume-panel-box set-panel-box">
+            暂未开放
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" id="video-window-play" class="h-5 w-5" viewBox="0 0 20 20"
+      fill="currentColor">
+      <path fill-rule="evenodd"
+        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+        clip-rule="evenodd" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" id="video-window-pause" class="h-5 w-5" viewBox="0 0 20 20"
+    fill="currentColor">
+    <path fill-rule="evenodd"
+      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+      clip-rule="evenodd" />
+  </svg>
+  </div>
+
+  <script type="module" src="./libs/format.js"></script>
+  <script type="module" src="./libs//CaiCaiPlayer.js"></script>
+  <script type="module" src="./javascript/index.js"></script>
+
+</body>
+</html>

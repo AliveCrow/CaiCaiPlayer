@@ -1,0 +1,15 @@
+#cai-video-container {
+  width: 1024px; 
+  height: 720px;
+  position: relative;
+}
+
+.cai-video-container {
+  height: 100%;
+  width: 100% !important;
+}
+
+.fullscreen {
+  height: 100%;
+  width: 100%;
+} 

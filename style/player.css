@@ -1,0 +1,33 @@
+#video {
+  border-radius: 30px;
+  outline: none;
+}
+
+.auto {
+  height: 100%;
+  width: 100%;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+.cai-video-controls {
+  /*   比全屏的状态下的视频元素高*/
+  z-index: 2147483648 !important;
+  opacity: 1;
+}
+
+#video-window-play,#video-window-pause{
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  fill: rgba(255, 255, 255, .3);
+  backdrop-filter: blur(20px);
+  background-color: rgba(255,255,255,.2);
+  border-radius: 8px;
+}
+

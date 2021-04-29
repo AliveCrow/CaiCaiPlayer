@@ -1,0 +1,61 @@
+/* #volume-panel {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translate(-50%, -50%);
+} */
+
+.volume-panel-box {
+  height: 20px;
+  background-color: #fff; 
+  position: absolute;
+  left: 50%;
+  top: -11px;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.volume-panel {
+  background: -webkit-linear-gradient(rgba(23, 22, 22, 1), rgba(23, 22, 22, 1)) no-repeat, rgb(255, 255, 255);
+  background-size: 0 100%;
+  flex: 1;
+}
+
+/* 控制条轨迹的背景和边框样式 */
+.volume-panel::-webkit-slider-runnable-track {
+  height: 2px;
+  transition: all 0.15s ease-in-out;
+}
+
+/* 设置控制的拖拽按钮样式 */
+.volume-panel::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 5px solid rgba(23, 22, 22, .8);
+  width: 10px;
+  height: 10px;
+  background-color: rgba(23, 22, 22, 1);
+  margin-top: -4px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sound:hover .volume-panel-box {
+  animation: showVolume 1s ease .05s forwards;
+}
+
+@keyframes showVolume {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
